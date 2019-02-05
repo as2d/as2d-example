@@ -1,8 +1,5 @@
 {
-  "compilerOptions": {
-    "noUnusedLocals": false,
-    "noUnusedParameters": false
-  },
+  "compilerOptions": {},
   "extends": "../node_modules/assemblyscript/std/assembly.json",
   "include": [
     "./**/*.ts"
