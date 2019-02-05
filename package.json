@@ -1,0 +1,28 @@
+{
+  "name": "as2d-example",
+  "version": "1.0.0",
+  "description": "as2d-example",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "asbuild": "asc assembly/index.ts node_modules/as2d/assembly/glue.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate --optimize"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/as2d/as2d-example.git"
+  },
+  "author": "Joshua <tenner.joshua@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/as2d/as2d-example/issues"
+  },
+  "homepage": "https://github.com/as2d/as2d-example#readme",
+  "dependencies": {
+    "as2d": "github:as2d/as2d",
+    "assemblyscript": "github:assemblyscript/assemblyscript"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.11.0",
+    "typescript": "^3.3.1"
+  }
+}
