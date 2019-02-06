@@ -8,6 +8,7 @@
     "start": "npm run asbuild && npm run parcel",
     "parcel": "parcel src/index.html",
     "asbuild": "asc assembly/index.ts node_modules/as2d/assembly/glue.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate --optimize --use Math=JSMath",
+    "parcel-build": "parcel build src/index.html --public-url .",
     "gh-pages": "git subtree push --prefix dist origin gh-pages"
   },
   "repository": {
