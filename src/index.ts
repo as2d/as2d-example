@@ -1,20 +1,31 @@
-import { instantiateStreaming } from "as2d";
+import { instantiateStreaming, instantiateBuffer } from "as2d";
 const fs = require("fs");
-
 const buffer = fs.readFileSync("./build/optimized.wasm");
-const blob = new Blob([buffer], { type: "application/wasm" });
-const url = URL.createObjectURL(blob);
+
+async function streaming(): Promise<void> {
+  const blob = new Blob([buffer], { type: "application/wasm" });
+  const url = URL.createObjectURL(blob);
+  // @ts-ignore
+  window.wasm = await instantiateStreaming<AS2DExample>(fetch(url), {});
+}
 
 interface AS2DExample {
   init(): void;
   mouseMove(x: number, y: number): void;
 }
 
-async function main() {
-  const wasm = await instantiateStreaming<AS2DExample>(fetch(url), {});
+// @ts-ignore
+if (typeof WebAssembly.instantiateStreaming === "function") {
+  streaming().then(postInstantiate);
+} else {
   // @ts-ignore
-  window.wasm = wasm;
+  window.wasm = instantiateBuffer<AS2DExample>(buffer, {});
+  postInstantiate();
+}
 
+function postInstantiate() {
+  // @ts-ignore
+  const wasm = window.wasm;
   const canvas = document.querySelector("canvas");
   if (canvas) {
     canvas.parentElement!.removeChild(canvas);
@@ -34,4 +45,3 @@ async function main() {
   wasm.init();
 }
 
-main();

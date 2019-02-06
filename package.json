@@ -25,6 +25,7 @@
     "assemblyscript": "github:assemblyscript/assemblyscript"
   },
   "devDependencies": {
+    "@types/webassembly-js-api": "0.0.2",
     "parcel-bundler": "^1.11.0",
     "typescript": "^3.3.1"
   }
