@@ -23,9 +23,15 @@ async function main() {
   const ctx = document.createElement("canvas")!.getContext("2d")!;
   ctx.canvas.width = 800;
   ctx.canvas.height = 600;
+  ctx.canvas.style.border = "solid 1px black";
+  ctx.canvas.addEventListener("mousemove", (e) => {
+    var rect: ClientRect = (e.target as HTMLCanvasElement).getBoundingClientRect();
+    wasm.mouseMove(e.clientX - rect.left, e.clientY - rect.top);
+  });
+
   document.body.appendChild(ctx.canvas);
-  wasm.init();
   wasm.useContext("main", ctx);
+  wasm.init();
 }
 
 main();

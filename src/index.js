@@ -8,4 +8,6 @@ if (!window.frame) {
   requestAnimationFrame(window.frame);
 }
 
+if (!window.Buffer) window.Buffer = require("buffer").Buffer;
+
 require("./index.ts");
