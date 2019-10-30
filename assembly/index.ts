@@ -1,5 +1,3 @@
-import "allocator/tlsf";
-
 import {
   CanvasRenderingContext2D,
   getContextById,
@@ -8,12 +6,12 @@ import {
 let ctx: CanvasRenderingContext2D;
 let x: f64 = 0;
 let y: f64 = 0;
-let stars: Float64Array = new Float64Array(2000);
-
+const starCount: i32 = 3000;
+let stars: Float64Array = new Float64Array(starCount * 2);
 export function init(): void {
   ctx = getContextById("main");
   let index: i32;
-  for (let i = 0; i < 1000; i++) {
+  for (let i = 0; i < starCount; i++) {
     index = i << 1;
     stars[index] = Math.random() * 800;
     stars[index + 1] = Math.random() * 600;
@@ -33,7 +31,8 @@ export function update(): void {
   let sy: f64;
   let index: i32;
   ctx.fillStyle = "white";
-  for (let i = 0; i < 1000; i++) {
+
+  for (let i = 0; i < starCount; i++) {
     index = i << 1;
     sx = unchecked(stars[index]);
     sy = unchecked(stars[index + 1]) + 1.0;
