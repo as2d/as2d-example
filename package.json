@@ -7,7 +7,7 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "npm run asbuild && npm run parcel",
     "parcel": "parcel src/index.html",
-    "asbuild": "asc assembly/index.ts node_modules/as2d/assembly/glue.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate -O3 --use Math=JSMath",
+    "asbuild": "asc assembly/index.ts node_modules/as2d/assembly/glue.ts -b build/optimized.wasm -t build/optimized.wat --sourceMap --validate -O3",
     "parcel-build": "parcel build src/index.html --public-url .",
     "gh-pages": "git subtree push --prefix dist origin gh-pages"
   },
@@ -22,11 +22,11 @@
   },
   "homepage": "https://github.com/as2d/as2d-example#readme",
   "dependencies": {
-    "as2d": "github:as2d/as2d#runtime",
-    "assemblyscript": "github:assemblyscript/assemblyscript"
+    "as2d": "^0.1.0",
+    "assemblyscript": "^0.8.1"
   },
   "devDependencies": {
-    "parcel-bundler": "1.12.4",
-    "typescript": "^3.6.4"
+    "parcel-bundler": "^1.12.4",
+    "typescript": "^3.7.2"
   }
 }

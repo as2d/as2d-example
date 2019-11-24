@@ -9,6 +9,8 @@ let y: f64 = 0;
 const starCount: i32 = 3000;
 let stars: Float64Array = new Float64Array(starCount * 2);
 export function init(): void {
+  let seed = JSMath.random() * <f64>u64.MAX_VALUE
+  NativeMath.seedRandom(<i64>seed);
   ctx = getContextById("main");
   let index: i32;
   for (let i = 0; i < starCount; i++) {
