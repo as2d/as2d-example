@@ -23,10 +23,10 @@
   "homepage": "https://github.com/as2d/as2d-example#readme",
   "dependencies": {
     "as2d": "^0.1.0",
-    "assemblyscript": "^0.8.1"
+    "assemblyscript": "^0.9.0"
   },
   "devDependencies": {
     "parcel-bundler": "^1.12.4",
-    "typescript": "^3.7.2"
+    "typescript": "^3.7.5"
   }
 }
